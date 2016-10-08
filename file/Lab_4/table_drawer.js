@@ -1,5 +1,5 @@
 
-//the constructor triggered by [new] keyword
+//the constructor triggered by the [new] keyword
 function TextCell(text) {
     this.text = text.split("\n");
 }
