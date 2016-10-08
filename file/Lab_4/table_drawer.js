@@ -20,7 +20,7 @@ function drawTable(rows) {
     }
 
     function drawRow(row, rowNum) {
-	//formatting row with the correct spacing
+	//formatting row with correct spacing
 	var blocks = row.map(function(cell, colNum) {
             return cell.draw(widths[colNum], heights[rowNum]);
 	});
