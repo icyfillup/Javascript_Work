@@ -21,7 +21,7 @@ var name = [ "Allison", "Arthur", "Ana", "Alex", "Arlene", "Alberto",
 	     "Miharu", "Chiaki", "Michiyo", "Itoe", "Nanaho", "Reina", "Emi",
 	     "Yumi", "Ayumi", "Kaori", "Sayuri", "Rie", "Miyuki", "Hitomi",
 	     "Naoko", "Miwa", "Etsuko", "Akane", "Kazuko", "Miyako", "Youko",
-	     "Sachiko", "Mieko", "Toshie", "Junko" ];
+	     "Sachiko", "Mieko", "Toshie", "Junko", "Naomi" ];
 
 var lastName = [ "Abbott", "Acevedo", "Acosta", "Adams", "Adkins",
 		 "Aguilar", "Aguirre", "Albert", "Alexander", "Alford", "Allen",
