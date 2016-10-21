@@ -1,4 +1,7 @@
-module.exports = function(string)
+module.exports = function(WebAddress)
 {
-    console.log(string)
+    var FileSystem = require("fs");
+    var FileText = FileSystem.readFileSync(WebAddress, "utf8");
+    
+    return FileText;
 }
