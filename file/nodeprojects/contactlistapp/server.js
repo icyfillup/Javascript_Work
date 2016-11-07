@@ -1,36 +1,57 @@
+
 var express = require('express');
 var app = express();
+var mongojs = require('mongojs');
+var db = mongojs('contactlist', ['contactlist']);
+var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
-app.get('/contactlist', function(request, response)
-	{
-	    console.log("I received a GET request")
+app.get('/contactlist', function (req, res) {
+    console.log('I received a GET request');
 
-	    person1 = 
-		{
-		    name: 'tim',
-		    email: 'time@email.com',
-		    number: '(111) 111-1111'
-		};
+    db.contactlist.find(function (err, docs) {
+	console.log(docs);
+	res.json(docs);
+    });
+});
 
-	    person2 = 
-		{
-		    name: 'tom',
-		    email: 'tom@email.com',
-		    number: '(222) 111-1111'
-		};
+app.post("/contactlist", function(request, response){
+    console.log(request.body);
+    db.contactlist.insert(request.body, function(error, docs)
+			  {
+			      response.json(docs);
+			  });
+});
 
-	    person3 = 
-		{
-		    name: 'john',
-		    email: 'john@email.com',
-		    number: '(333) 111-1111'
-		};
+app.delete('/contactlist/:id', function (req, res) {
+    var id = req.params.id;
+    console.log(id);
+    db.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+	res.json(doc);
+    });
+});
 
-	    var contactlist = [person1, person2, person3];
-	    response.json(contactlist)
-	})
+app.get('/contactlist/:id', function (req, res) {
+    var id = req.params.id;
+    console.log(id);
+    db.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+	res.json(doc);
+    });
+});
+
+app.put('/contactlist/:id', function (req, res) {
+    var id = req.params.id;
+    console.log(req.body.name);
+    db.contactlist.findAndModify({
+	query: {_id: mongojs.ObjectId(id)},
+	update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+	new: true}, function (err, doc) {
+	    res.json(doc);
+	});
+});
+
 
 app.listen(3000);
 console.log("Server running on port 3000");

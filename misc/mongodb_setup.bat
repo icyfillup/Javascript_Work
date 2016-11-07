@@ -1,1 +1,1 @@
-mongod --dbpath "W:\CS3035 - Programming Language Paradigms\data\db"
+mongod --dbpath "W:\Javascript_Work\data\db"
