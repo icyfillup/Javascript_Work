@@ -2,7 +2,7 @@
 import org.jacop.core.*; 
 import org.jacop.constraints.*; 
 import org.jacop.search.*; 
- 
+
 public class Main { 
  
     static Main m = new Main (); 
@@ -30,7 +30,7 @@ public class Main {
  
         if ( result ) 
             System.out.println("Solution: " + v[0]+", "+v[1] +", "+ 
-                                              v[2] +", "+v[3]); 
+                               v[2] +", "+v[3]); 
         else 
             System.out.println("*** No"); 
     } 
