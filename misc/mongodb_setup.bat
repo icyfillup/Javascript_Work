@@ -1,1 +1,1 @@
-mongod --dbpath "W:\Javascript_Work\data\db"
+mongod --dbpath "..\data\db"
