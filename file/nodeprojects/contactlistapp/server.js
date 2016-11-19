@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 app.get('/contactlist', function (req, res) {
-    console.log('I received a GET request');
+    console.log('server->app.get: I received a GET request');
 
     db.contactlist.find(function (err, docs) {
 	console.log(docs);
@@ -18,6 +18,7 @@ app.get('/contactlist', function (req, res) {
 });
 
 app.post("/contactlist", function(request, response){
+    console.log("server->app.post");
     console.log(request.body);
     db.contactlist.insert(request.body, function(error, docs)
 			  {
@@ -53,5 +54,5 @@ app.put('/contactlist/:id', function (req, res) {
 });
 
 
-app.listen(80);
-console.log("Server running on port 80");
+app.listen(3000);
+console.log("Server running on port 3000");

@@ -7,7 +7,7 @@ myApp.controller
 	$http.get('/contactlist').success
 	(
 	    function(response){
-		console.log("I got the data I requested")
+		console.log("controller->refresh(): I got the data I requested")
 		$scope.contactlist = response
 	    }
 	)
@@ -15,13 +15,15 @@ myApp.controller
     
     
     refresh();
-
+    
     $scope.addContact = function(){
+	console.log("$controller->scope.addContact");
 	console.log($scope.contact);
 	$http.post('/contactlist', $scope.contact)
 	    .success(function(response){
 		console.log(response);
 		refresh();
+		
 	    });
     }
 
