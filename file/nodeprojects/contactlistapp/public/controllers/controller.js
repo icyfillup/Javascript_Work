@@ -4,17 +4,47 @@ myApp.controller
     console.log("Hello World from controller");
 
     var refresh = function(){
-	$http.get('/contactlist').success
+	console.log("controller->refresh(): I got the data I requested")	
+	$http.get('/education_list').success
 	(
 	    function(response){
-		console.log("controller->refresh(): I got the data I requested")
-		$scope.contactlist = response
+		$scope.education_list = response
+	    }
+	)
+
+	$http.get('/project_list').success
+	(
+	    function(response){
+		$scope.project_list = response
+	    }
+	)
+
+	$http.get('/skill_list').success
+	(
+	    function(response){
+		$scope.skill_list = response
 	    }
 	)
     }
-    
-    
+        
     refresh();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     $scope.addContact = function(){
 	console.log("$controller->scope.addContact");
