@@ -7,7 +7,8 @@ public class Main {
  
     static Main m = new Main (); 
  
-    public static void main (String[] args) { 
+    public static void main (String[] args) 
+    { 
         Store store = new Store();  // define FD store 
         int size = 4; 
         // define finite domain variables 
